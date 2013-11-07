@@ -373,6 +373,7 @@
                 itemContent = $("<a></a>"),//creates the item content
                 text = "",
                 title = "",
+                dataToggle = this.options.dataToggle,
                 itemContainerClass = this.options.itemContainerClass(type, page, this.currentPage),
                 itemContentClass = this.getValueFromOption(this.options.itemContentClass, type, page, this.currentPage),
                 tooltipOpts = null;
@@ -413,6 +414,10 @@
 
             if (this.options.pageUrl) {
                 itemContent.attr("href", this.getValueFromOption(this.options.pageUrl, type, page, this.currentPage));
+            }
+
+            if (this.options.dataToggle) {
+                itemContent.attr("data-toggle", this.getValueFromOption(this.options.dataToggle, type, page, this.currentPage));
             }
 
             if (this.options.useBootstrapTooltip) {
@@ -586,6 +591,7 @@
         onPageClicked: null,
         onPageChanged: null,
         useBootstrapTooltip: false,
+        dataToggle: null,
         shouldShowPage: function (type, page, current) {
 
             var result = true;
